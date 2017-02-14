@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title= "Edit Restaurant"
+
+	body
+		h1= main_tag
+		br
+		br
+		form(method='POST' action='/items/restaurant/doEdit')
+			div
+				label(for="restaurant_name") Restaurant Name: 
+				input(name="restaurant_name" id="restaurant_name")
+				br
+				br
+				h3=main_id
+				br
+				br
+				button(type="submit") Submit
