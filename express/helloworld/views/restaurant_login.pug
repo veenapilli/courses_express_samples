@@ -1,0 +1,14 @@
+doctype html
+html
+	head
+		title= "Login"
+
+	body
+		h1= main_tag
+		form(method='POST' action='/items/restaurant/doLogin')
+			div
+				label(for="user_name") UserName: 
+				input(name="user_name" id="user_name")
+			br
+			br
+			button(type="submit") Submit

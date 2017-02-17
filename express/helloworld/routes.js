@@ -6,6 +6,7 @@ var upload = multer();
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var loginSession = require('express-session');
 
 router.use(cookieParser());
 router.use(session({secret: "Shh, its a secret!"}));
@@ -40,6 +41,22 @@ var Menu = mongoose.model("Menu", restaurantSchema);
 
 //-------------------- schemas complete --------------------//
 
+//-------------------- LOGIN --------------------//
+
+router.get('/restaurant/login', function (req, res) {  
+  res.render('restaurant_login',{
+   main_tag: "Login into Restaurant Webapp!"
+   var resId = mongoose.Types.ObjectId();
+   req.loginSession.secret_id = resId; 
+
+ });
+});
+
+router.post('/restaurant/doLogin', function (req, res) {  
+  //redirect to list after login
+ getAllRestaurantsAndDisplay(req, res);
+});
+
 //-------------------- CREATE --------------------//
 router.get('/restaurant/create', function (req, res) {  
 	res.render('restaurant_create',{
@@ -67,10 +84,16 @@ router.post('/restaurant/create', function (req, res) {
 
 //-------------------- LIST --------------------//
 router.get('/restaurant/list', function (req, res) {    
-  Restaurant.find({}, function(err, restaurants) {
+ 
+  // object of all the users
+    getAllRestaurantsAndDisplay(req, res);
+  
+});
+
+function getAllRestaurantsAndDisplay(req, res){
+   Restaurant.find({}, function(err, restaurants) {
     if (err) throw err;
 
-  // object of all the users
     for (var i = restaurants.length - 1; i >= 0; i--) {
      console.log(restaurants[i].name + " "+ restaurants[i].id);
     };
@@ -79,8 +102,7 @@ router.get('/restaurant/list', function (req, res) {
       restaurant_list: restaurants
     });
   });
-});
-
+}
 //-------------------- DELETE --------------------//
 router.get('/restaurant/clear', function(req, res){
   Restaurant.remove({}, function(err, response){
