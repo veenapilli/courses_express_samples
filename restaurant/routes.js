@@ -45,9 +45,9 @@ var Menu = mongoose.model("Menu", restaurantSchema);
 
 router.get('/restaurant/login', function (req, res) {  
   res.render('restaurant_login',{
-   main_tag: "Login into Restaurant Webapp!"
-   var resId = mongoose.Types.ObjectId();
-   req.loginSession.secret_id = resId; 
+  main_tag: "Login into Restaurant Webapp!"
+  // var resId = mongoose.Types.ObjectId();
+ //  req.loginSession.secret_id = resId; 
 
  });
 });
