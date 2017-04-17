@@ -2,13 +2,15 @@ doctype html
 html
 	head
 		title= "Login"
+		link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
 
 	body
-		h1= main_tag
-		form(method='POST' action='/items/restaurant/doLogin')
-			div
-				label(for="user_name") UserName: 
-				input(name="user_name" id="user_name")
-			br
-			br
-			button(type="submit") Submit
+		.container
+			.jumbotron
+				h1= main_tag
+			form(method='POST' action='/items/restaurant/doLogin')
+				div.form-group
+					label(for="user_name") UserName: 
+					input#user_name.form-control(name="user_name" type="text" placeholder="Enter user name")
+					br
+					button.btn.btn-warning(type="submit") Submit

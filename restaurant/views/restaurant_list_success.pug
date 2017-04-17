@@ -2,16 +2,19 @@ doctype html
 html
 	head
 		title= "Success"
+		link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
 
 	body
-		h1= main_tag
-		br
-		if restaurant_list
-			each restaurant in restaurant_list
-				h3 #{restaurant.name}
-				a(href='/items/restaurant/edit/' + restaurant.id) Edit
-				br
-				a(href='/items/restaurant/deleteConfirmation/' + restaurant.id) Delete
-				br
-				br
-				br
+		.container
+			.jumbotron
+				h1= main_tag
+		
+			if restaurant_list
+				each restaurant in restaurant_list
+					h3 #{restaurant.name}
+					a(href='/items/restaurant/edit/' + restaurant.id) Edit
+					br
+					a(href='/items/restaurant/deleteConfirmation/' + restaurant.id) Delete
+					br
+					br
+					br

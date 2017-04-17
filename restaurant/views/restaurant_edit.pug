@@ -2,18 +2,16 @@ doctype html
 html
 	head
 		title= "Edit Restaurant"
+		link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
 
 	body
-		h1= main_tag
-		br
-		br
-		form(method='POST' action='/items/restaurant/doEdit')
-			div
-				label(for="restaurant_name") Restaurant Name: 
-				input(name="restaurant_name" id="restaurant_name")
-				br
-				br
-				h3=main_id
-				br
-				br
-				button(type="submit") Submit
+		.container
+			.jumbotron
+				h1= main_tag
+			form(method='POST' action='/items/restaurant/doEdit')
+				div.form-group
+					label(for="restaurant_name") Restaurant Name: 
+					input#restaurant_name.form-control(name="restaurant_name" type="text" placeholder="Enter new name for restaurant")
+					h3=main_id
+					br
+					button.btn.btn-warning(type="submit") Submit

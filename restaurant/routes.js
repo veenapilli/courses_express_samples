@@ -78,7 +78,7 @@ router.post('/restaurant/create', function (req, res) {
   });
   
   res.render('restaurant_success',{
-   message_tag: "Your Restaurant has been created!!"
+   main_tag: "Your Restaurant has been created!!"
   });
 });
 
@@ -115,7 +115,7 @@ router.get('/restaurant/clear', function(req, res){
       console.log("No of restaurants: " + restaurants.length);
   
       res.render('restaurant_success', { 
-      message_tag: "Cleared All Restaurants",
+      main_tag: "Cleared All Restaurants",
       })
     });
   });

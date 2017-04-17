@@ -2,15 +2,13 @@ doctype html
 html
 	head
 		title= "Delete Restaurant"
+		link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
 
 	body
-		h1= main_tag
-		br
-		br
-		form(method='POST' action='/items/restaurant/doDelete')
-			h6= main_id
-			br
-			br
-			button(type="submit" id="delete") Delete
-			br
-			br
+		.container
+			.jumbotron
+				h1= main_tag
+			form(method='POST' action='/items/restaurant/doDelete')
+				h6= main_id
+				br
+				button.btn.btn-warning(type="submit" id="delete") Delete
